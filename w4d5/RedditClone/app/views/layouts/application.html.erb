@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <% if current_user %>
+    <%= current_user.username %>
+    <%= button_to("logout", session_url, method: :delete) %>
+  <% else %>
+    <%= button_to("login", new_session_url, method: :get) %>
+    <%= button_to("new user", new_user_url, method: :get) %>
+  <% end %>
+
+  <%= button_to("Home", root_url, method: :get) %>
+</header>
+<head>
+  <title>RedditClone</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <%= error %>
+  <% end end %>
+
+<%= yield %>
+
+</body>
+</html>

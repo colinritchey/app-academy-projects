@@ -1,0 +1,7 @@
+<h1>Post</h1>
+
+<h3> <%= @post.title %> </h3>
+<pre> <%= @post.content %> </pre>
+<p>By <%= @post.author.username %></p>
+
+<%= button_to("Edit", edit_post_url, method: :get) %>

@@ -1,0 +1,28 @@
+<h1>New Album!</h1>
+<%= flash[:errors] %>
+<form action="<%= albums_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
+  <br>
+
+  <label for="album_name">Album Name</label>
+    <input id="album_name" type="text" name="album[name]" >
+
+  <br>
+
+  <select for="album_band_id" name="album[band_id]">
+    <% Band.all.each do |band| %>
+      <option '<%= "selected" if band.id == @album.band_id %>'
+      value=" <%= band.id %>"> <%= band.name %>
+      </option>
+    <% end %>
+  </select>
+
+  <br>
+
+  <!-- <select name="band_studio"> -->
+    <input type="radio" name="album[studio]" value="live" > Live
+    <input type="radio" name="album[studio]" value="studio" checked="checked"> Studio
+  <!-- </select> -->
+
+  <input type="submit" name="Submit">
+</form>

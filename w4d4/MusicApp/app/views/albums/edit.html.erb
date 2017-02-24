@@ -1,0 +1,14 @@
+<%= link_to "All Bands", bands_url %>
+
+<h1>Edit Album!</h1>
+
+<form action="<%= album_url(@album) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
+  <br>
+  <label for="album_name">Album Name</label>
+    <input id="album_name" type="text" name="album[name]" value=" <%= @album.name %>">
+
+  <br>
+  <input type="submit" name="Submit">
+</form>

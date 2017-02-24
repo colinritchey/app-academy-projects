@@ -1,0 +1,12 @@
+<h1> <%= @track.name %> </h1>
+
+<br>
+<pre>  <%= @track.lyrics %> </pre>
+
+<br>
+<%= link_to "Edit", edit_track_url(@track) %>
+<br>
+<%= link_to "Delete", track_url(@track), method: :delete%>
+
+<br>
+<%= link_to "Current Album", album_url(@track.album) %>
